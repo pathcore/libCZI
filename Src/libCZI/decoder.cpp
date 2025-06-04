@@ -54,6 +54,8 @@ using namespace std;
 		JxrDecode::Decode(this->handle, &args, ptrData, size,
 			[](JxrDecode::PixelFormat decPixFmt)->JxrDecode::PixelFormat
 		{
+			throw std::logic_error("inject test failure in CJxrLibDecoder::Decode");
+
 			// We get the "original pixelformat" of the compressed data, and we need to respond
 			// which pixelformat we want to get from the decoder.
 			// ...one problem is that not all format-conversions are possible - we choose the "closest"
